@@ -44,16 +44,26 @@
       ],
       "@/shared/*": [
         "./src/shared/*"
-      ],
+      ]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src"
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "ts-node": {
+    "transpileOnly": true,
+    "esm": true,
+    "compilerOptions": {
+      "module": "ESNext",
+      "moduleResolution": "Node",
+      "verbatimModuleSyntax": false
+    }
+  }
 }

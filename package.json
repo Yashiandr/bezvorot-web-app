@@ -6,7 +6,14 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --config ./config/jest/jest.config.ts",
+    "storybook": "storybook dev -p 6006 -c ./config/storybook",
+    "storybook:build": "storybook build -c ./config/storybook",
+    "docker:build": "docker build -t bezvorot-visual-test . -f Dockerfile.test",
+    "test:visual": "npx playwright test",
+    "test:visual:approve": "npx playwright test --update-snapshots",
+    "ci:test:visual": "docker run --rm -it -e TEST_BASE_URL='http://172.17.0.1:6006' -e CI=true -v ${PWD}/storybook-static:/app/storybook-static -v ${PWD}/test:/app/test -v ${PWD}/playwright.config.ts:/app/playwright.config.ts bezvorot-visual-test test"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
@@ -20,14 +27,42 @@
     "tw-animate-css": "^1.2.4"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.6",
     "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.51.1",
+    "@storybook/addon-essentials": "^8.6.8",
+    "@storybook/addon-onboarding": "^8.6.8",
+    "@storybook/blocks": "^8.6.8",
+    "@storybook/experimental-addon-test": "^8.6.8",
+    "@storybook/experimental-nextjs-vite": "^8.6.8",
+    "@storybook/react": "^8.6.8",
+    "@storybook/test": "^8.6.8",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^29.5.14",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "@vitest/browser": "^3.0.9",
+    "@vitest/coverage-v8": "^3.0.9",
     "eslint": "^9",
     "eslint-config-next": "15.2.3",
+    "eslint-plugin-storybook": "^0.11.6",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "playwright": "^1.51.1",
+    "storybook": "^8.6.8",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "ts-jest": "^29.2.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5",
+    "vitest": "^3.0.9"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }
