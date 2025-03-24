@@ -67,7 +67,7 @@ export const Hidden: Story = {
 
 export const TypePassword: Story = {
   args: {
-    placeholder: "Поле для ввода пароля",
+    placeholder: "Поле для пароля",
     disabled: false,
     type: "password",
   },
