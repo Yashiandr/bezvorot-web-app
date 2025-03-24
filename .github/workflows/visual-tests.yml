@@ -32,7 +32,7 @@ jobs:
         if: always()
         run: |
           mkdir -p gh-pages
-          cp -r playwright-report/* gh-pages/
+          cp -r playwright-reporter/* gh-pages/
           touch gh-pages/.nojekyll
 
       - name: Deploy to GitHub Pages
