@@ -19,7 +19,9 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: process.env.ci ? "html" : "dot",
+  reporter: process.env.ci
+    ? [["html", { outputFolder: "playwright-reporter" }]]
+    : "dot",
   use: {
     baseURL: BASE_URL,
 
