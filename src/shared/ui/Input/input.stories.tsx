@@ -55,6 +55,14 @@ export const Hidden: Story = {
     disabled: false,
     type: "hidden",
   },
+  render(args) {
+    return (
+      <div>
+        Где-то тут спрятался инпут
+        <Input {...args} />;
+      </div>
+    );
+  },
 };
 
 export const TypePassword: Story = {
