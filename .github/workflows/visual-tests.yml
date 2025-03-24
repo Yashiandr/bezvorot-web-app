@@ -33,7 +33,7 @@ jobs:
           curl -I http://localhost:6006 || exit 1
 
       - name: Run Playwright tests
-        run: ci:test:visual
+        run: npm run ci:test:visual
 
       - name: Upload report
         if: always()
