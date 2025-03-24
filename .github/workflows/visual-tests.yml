@@ -15,16 +15,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Build Docker image
+        run: npm run docker:build
+        
       - name: Build Storybook
         run: npm run storybook:build
-
-      - name: Run Storybook in background
-        run: npm run storybook & sleep 10
 
       - name: Run visual tests
         run: npm run ci:test:visual
