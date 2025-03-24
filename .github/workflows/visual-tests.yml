@@ -26,6 +26,11 @@ jobs:
       - name: Build Storybook (static)
         run: npm run storybook:build
 
+      - name: Serve Storybook via HTTP server
+        run: |
+          npx http-server storybook-static -p 6006 --silent &
+          echo "STORYBOOK_URL=http://localhost:6006" >> $GITHUB_ENV
+
       - name: Run Playwright tests
         run: npm run ci:test:visual
 

@@ -13,8 +13,8 @@
     "docker:build": "docker build -t bezvorot-visual-test . -f Dockerfile.test",
     "test:visual": "npx playwright test",
     "test:visual:approve": "npx playwright test --update-snapshots",
-    "ci:test:visual": "docker run --rm -e TEST_BASE_URL='http://host.docker.internal' -e CI=true -v ${PWD}/storybook-static:/app/storybook-static -v ${PWD}/test:/app/test -v ${PWD}/playwright.config.ts:/app/playwright.config.ts bezvorot-visual-test test",
-    "ci:test:visual:approve": "docker run --rm -e TEST_BASE_URL='http://host.docker.internal' -e CI=true -v ${PWD}/storybook-static:/app/storybook-static -v ${PWD}/test:/app/test -v ${PWD}/playwright.config.ts:/app/playwright.config.ts bezvorot-visual-test test --update-snapshots",
+    "ci:test:visual": "docker run --rm -e TEST_BASE_URL=$STORYBOOK_URL -e CI=true -v ${PWD}/storybook-static:/app/storybook-static -v ${PWD}/test:/app/test -v ${PWD}/playwright.config.ts:/app/playwright.config.ts bezvorot-visual-test test",
+    "ci:test:visual:approve": "docker run --rm -e TEST_BASE_URL=$STORYBOOK_URL -e CI=true -v ${PWD}/storybook-static:/app/storybook-static -v ${PWD}/test:/app/test -v ${PWD}/playwright.config.ts:/app/playwright.config.ts bezvorot-visual-test test --update-snapshots",
     "ci:test:visual:local": "docker run --rm -e TEST_BASE_URL='http://172.17.0.1:6006' -e CI=true -v ${PWD}/storybook-static:/app/storybook-static -v ${PWD}/test:/app/test -v ${PWD}/playwright.config.ts:/app/playwright.config.ts bezvorot-visual-test test",
     "ci:test:visual:local:approve": "docker run --rm -e TEST_BASE_URL='http://172.17.0.1:6006' -e CI=true -v ${PWD}/storybook-static:/app/storybook-static -v ${PWD}/test:/app/test -v ${PWD}/playwright.config.ts:/app/playwright.config.ts bezvorot-visual-test test --update-snapshots"
   },
