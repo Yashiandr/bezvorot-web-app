@@ -17,7 +17,7 @@ for (const story of stories) {
     await page.waitForLoadState("networkidle");
 
     await expect(page).toHaveScreenshot(
-      `${story.id} - ${workerInfo.project.name}-${process.platform}.png`,
+      [process.platform, story.title,story.name, `${workerInfo.project.name}.png`],
       {
         fullPage: true,
         animations: "disabled"
