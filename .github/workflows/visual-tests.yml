@@ -27,8 +27,7 @@ jobs:
         
       - name: Start HTTP server
         run: |
-          npx http-server storybook-static -p 6006 --silent &
-          echo "STORYBOOK_URL=http://localhost:6006" >> $GITHUB_ENV
+          npx http-server storybook-static -p 6006 --silent & echo "STORYBOOK_URL=http://localhost:6006" >> $GITHUB_ENV
           sleep 5
           curl -I $STORYBOOK_URL || echo "Storybook не запустился"
           
@@ -37,8 +36,8 @@ jobs:
           docker run --rm \
             --network host \
             -e TEST_BASE_URL=$STORYBOOK_URL \
-            -v ${{ github.workspace }}/playwright.config.ts:/app/playwright.config.ts \
-            -v ${{ github.workspace }}/test:/app/test \
+            -v ${PWD}/playwright.config.ts:/app/playwright.config.ts \
+            -v ${PWD}/test:/app/test \
             bezvorot-visual-test test
             
       - name: Upload report
