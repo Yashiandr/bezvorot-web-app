@@ -21,6 +21,9 @@ jobs:
         
       - name: Build Storybook
         run: npm run storybook:build
+      
+      - name: Build Docker image
+        run: npm run docker:build
         
       - name: Start HTTP server
         run: |
