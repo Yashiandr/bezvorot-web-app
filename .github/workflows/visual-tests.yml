@@ -28,9 +28,14 @@ jobs:
       - name: Run Playwright tests
         run: npm run ci:test:visual
 
-      - name: Upload report
-        if: always()
-        uses: actions/upload-artifact@v4
+      - name: Prepare report for GitHub Pages
+        run: |
+          mkdir -p gh-pages
+          cp -r playwright-report/* gh-pages/
+          touch gh-pages/.nojekyll
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          name: playwright-reporter
-          path: playwright-reporter/
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: gh-pages
