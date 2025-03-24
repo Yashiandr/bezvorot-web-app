@@ -37,6 +37,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
+        if: always()
         with:
           personal_token: ${{ secrets.GH_TOKEN }} # Используем PAT вместо GITHUB_TOKEN
           publish_dir: gh-pages
