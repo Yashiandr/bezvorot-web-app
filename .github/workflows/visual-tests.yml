@@ -29,12 +29,14 @@ jobs:
         run: npm run ci:test:visual
 
       - name: Prepare report for GitHub Pages
+        if: always()
         run: |
           mkdir -p gh-pages
           cp -r playwright-report/* gh-pages/
           touch gh-pages/.nojekyll
 
       - name: Deploy to GitHub Pages
+        if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
