@@ -10,36 +10,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          
+
       - name: Install dependencies
         run: npm ci
-        
-      - name: Build Storybook
-        run: npm run storybook:build
-      
+
       - name: Build Docker image
         run: npm run docker:build
-        
+
+      - name: Build Storybook
+        run: npm run storybook:build
+
       - name: Start HTTP server
-        run: |
-          npx http-server storybook-static -p 6006 --silent & echo "STORYBOOK_URL=http://localhost:6006" >> $GITHUB_ENV
-          sleep 5
-          curl -I $STORYBOOK_URL || echo "Storybook не запустился"
-          
+        run: npx http-server storybook-static -p 6006 --silent
+
       - name: Run Playwright tests
-        run: |
-          docker run --rm \
-            --network host \
-            -e TEST_BASE_URL=$STORYBOOK_URL \
-            -v ${PWD}/playwright.config.ts:/app/playwright.config.ts \
-            -v ${PWD}/test:/app/test \
-            bezvorot-visual-test test
-            
+        run: ci:test:visual
+
       - name: Upload report
         if: always()
         uses: actions/upload-artifact@v4
