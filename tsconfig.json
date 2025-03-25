@@ -52,7 +52,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src"
+    "src",
+    "./src/shared/ui/Typography/types/types.d.ts"
   ],
   "exclude": [
     "node_modules"

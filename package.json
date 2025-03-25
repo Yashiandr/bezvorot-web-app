@@ -14,7 +14,7 @@
     "test:visual": "npx playwright test",
     "test:visual:approve": "npx playwright test --update-snapshots",
     "ci:test:visual": "docker run --rm -e CI=true -v ${PWD}/storybook-static:/app/storybook-static -v ${PWD}/playwright-reporter:/app/playwright-reporter -v ${PWD}/test-results:/app/test-results -v ${PWD}/test:/app/test -v ${PWD}/playwright.config.ts:/app/playwright.config.ts bezvorot-visual-test test",
-    "ci:test:visual:approve": "docker run --rm -e CI=true -v ${PWD}/storybook-static:/app/storybook-static -v ${PWD}/playwright-report:/app/playwright-report -v ${PWD}/test-result:/app/test-result -v ${PWD}/test:/app/test -v ${PWD}/playwright.config.ts:/app/playwright.config.ts bezvorot-visual-test test --update-snapshots"
+    "ci:test:visual:approve": "docker run --rm -e CI=true -v ${PWD}/storybook-static:/app/storybook-static -v ${PWD}/playwright-report:/app/playwright-report -v ${PWD}/test-results:/app/test-results -v ${PWD}/test:/app/test -v ${PWD}/playwright.config.ts:/app/playwright.config.ts bezvorot-visual-test test --update-snapshots"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
