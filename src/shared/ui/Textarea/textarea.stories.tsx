@@ -22,10 +22,29 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Discovery: Story = {};
+export const Primary: Story = {};
 
 export const Disabled: Story = {
   args: {
     placeholder: "Отключенное поле ввода",
     disabled: true,
+  },
+};
+
+export const PrimaryDark: Story = {
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};
+
+export const DisabledDark: Story = {
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
   },
 };

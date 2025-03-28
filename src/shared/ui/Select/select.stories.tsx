@@ -182,3 +182,33 @@ export const Opened: Story = {
     );
   },
 };
+
+export const PrimaryDark: Story = {
+  ...Primary,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};
+
+export const ScrollableDark: Story = {
+  ...Scrollable,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};
+
+export const OpenedDark: Story = {
+  ...Opened,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};

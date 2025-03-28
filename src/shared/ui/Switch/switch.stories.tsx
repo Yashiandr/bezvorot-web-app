@@ -15,3 +15,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {};
+export const PrimaryDark: Story = {
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};

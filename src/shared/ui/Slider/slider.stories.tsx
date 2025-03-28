@@ -90,6 +90,16 @@ export const Default: Story = {
   },
 };
 
+export const DefaultDark: Story = {
+  ...Default,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};
+
 export const Vertical: Story = {
   args: {
     defaultValue: [50],

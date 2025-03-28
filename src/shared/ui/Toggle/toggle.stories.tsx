@@ -68,3 +68,23 @@ export const WithText: StoryObj<
     );
   },
 };
+
+export const DefaultDark: Story = {
+  ...Default,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};
+
+export const OutlineDark: Story = {
+  ...Outline,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};

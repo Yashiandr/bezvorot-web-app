@@ -19,11 +19,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Docker image
-        run: npm run docker:build
-
       - name: Build Storybook
         run: npm run storybook:build
+
+      - name: Start Storybook server in background
+        run: |
+          npx http-server storybook-static -p 6006 -s &
+          echo "HTTP-server started on port 6006"
+          sleep 3  # Даем серверу время на запуск
+
+      - name: Wait for Storybook server
+        run: |
+          until curl -s http://localhost:6006 >/dev/null; do
+            echo "Waiting for Storybook server..."
+            sleep 1
+          done
+          echo "Storybook server is ready!"
 
       - name: Run Playwright tests
         run: npm run ci:test:visual
@@ -39,5 +50,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         if: always()
         with:
-          personal_token: ${{ secrets.GH_TOKEN }} # Используем PAT вместо GITHUB_TOKEN
+          personal_token: ${{ secrets.GH_TOKEN }}
           publish_dir: gh-pages

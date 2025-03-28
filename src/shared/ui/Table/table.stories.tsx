@@ -121,3 +121,13 @@ export const PrimaryTable: Story = {
     ),
   },
 };
+
+export const PrimaryTableDark: Story = {
+  ...PrimaryTable,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};

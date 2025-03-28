@@ -311,3 +311,14 @@ export const Example: Story = {
     );
   },
 };
+
+export const ExampleDark: Story = {
+  ...Example,
+  parameters: {
+    ...Example.parameters,
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};

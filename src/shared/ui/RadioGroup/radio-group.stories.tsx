@@ -24,3 +24,13 @@ export const Primary: Story = {
     );
   },
 };
+
+export const PrimaryDark: Story = {
+  ...Primary,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};

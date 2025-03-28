@@ -50,6 +50,15 @@ export const PrimaryCard: Story = {
     ),
   },
 };
+export const PrimaryCardDark: Story = {
+  ...PrimaryCard,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};
 
 export const WithActionCard: Story = {
   args: {

@@ -29,21 +29,26 @@ const badgeVariants = cva(
 function Badge({
   className,
   variant,
+  textToColor,
   asChild = false,
   ...props
 }: React.ComponentProps<"span"> &
-  VariantProps<typeof badgeVariants> & { asChild?: boolean }) {
+  VariantProps<typeof badgeVariants> & {
+    asChild?: boolean;
+    textToColor?: string;
+  }) {
   const Comp = asChild ? Slot : "span";
-  let style = null;
-  if (variant === "random-color" && props.children) {
-    style = textToHSL(props.children.toString());
-    console.log(style);
-  }
+  const style = React.useMemo(() => {
+    if (props.children || textToColor) {
+      return textToHSL(textToColor || props.children?.toString() || "");
+    }
+    return null;
+  }, [props.children, textToColor]);
 
   return (
     <Comp
       data-slot="badge"
-      style={style ? style : undefined}
+      style={style && variant === "random-color" ? style : undefined}
       className={cn(badgeVariants({ variant }), className)}
       {...props}
     />

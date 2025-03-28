@@ -140,3 +140,62 @@ export const LinkButton: Story = {
     size: "default",
   },
 };
+export const DefaultDark: Story = {
+  ...Default,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};
+
+export const DestructiveButtonDark: Story = {
+  ...DestructiveButton,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};
+
+export const BorderButtonDark: Story = {
+  ...BorderButton,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};
+
+export const SecondaryButtonDark: Story = {
+  ...SecondaryButton,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};
+
+export const GhostButtonDark: Story = {
+  ...GhostButton,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};
+
+export const LinkButtonDark: Story = {
+  ...LinkButton,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};

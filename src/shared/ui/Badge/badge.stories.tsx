@@ -34,34 +34,74 @@ export const Discovery: Story = {};
 export const Default: Story = {
   args: {
     children: "Стандартный",
-    variant: "default"
-  }
+    variant: "default",
+  },
 };
 
 export const Secondary: Story = {
   args: {
     children: "Второстепенный",
-    variant: "secondary"
-  }
+    variant: "secondary",
+  },
 };
 
 export const Destructive: Story = {
   args: {
     children: "Деструктивный",
-    variant: "destructive"
-  }
+    variant: "destructive",
+  },
 };
 
 export const Outline: Story = {
   args: {
     children: "С границей",
-    variant: "outline"
-  }
+    variant: "outline",
+  },
+};
+
+export const DefaultDark: Story = {
+  ...Default,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};
+
+export const SecondaryDark: Story = {
+  ...Secondary,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};
+
+export const DestructiveDark: Story = {
+  ...Destructive,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
+};
+
+export const OutlineDark: Story = {
+  ...Outline,
+  parameters: {
+    theme: "dark",
+    docs: {
+      disable: true,
+    },
+  },
 };
 
 export const RandomColor: Story = {
   args: {
     children: "Случайный Цвет",
-    variant: "random-color"
-  }
+    variant: "random-color",
+  },
 };
