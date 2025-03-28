@@ -13,3 +13,7 @@ export * from "./Toggle/toggle";
 export * from "./Textarea/textarea";
 export * from "./Form/form";
 export * from "./Sonner/sonner";
+export * from "./Popover/popover";
+export * from "./Dialog/dialog";
+export * from "./DataTable/data-table";
+export * from "./DropdownMenu/dropdown-menu";

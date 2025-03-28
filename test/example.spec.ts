@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import storybook from "../storybook-static/index.json" with { type: "json" };
 
-const stories = Object.values(storybook.entries).filter((e) => e.type === "story");
+const stories = Object.values(storybook.entries).filter((e) => e.type === "story" && !e.tags.includes('skip-test'));
 const BASE_URL = process.env.TEST_BASE_URL || "http://localhost:6006";
 
 for (const story of stories) {

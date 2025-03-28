@@ -3,6 +3,7 @@ import { ThemeDecorator } from "../../src/shared/config/storybook/decorators/the
 import "../../src/app/styles/globals.css";
 const preview: Preview = {
   parameters: {
+    docs: { inlineStories: true },
     controls: {
       matchers: {
         color: /(background|color)$/i,
